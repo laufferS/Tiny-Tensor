@@ -40,13 +40,3 @@ See `NeuralNetwork.ipynb` for a full example: a small MLP built from `tinytensor
 tinytensor.py         # core Tensor class, einsum autodiff, activations
 NeuralNetwork.ipynb    # Layer/MLP built on tinytensor, training examples
 ```
-
-## Requirements
-
-- Python 3.10+
-- NumPy
-- Jupyter (only needed to run `NeuralNetwork.ipynb`)
-
-## Status
-
-This was built incrementally to explore, in order: a differentiable `einsum`, general partial-derivative/Jacobian computation for arbitrary index schemes, reverse-topological backpropagation, and finally a small neural network built on top of all of it. It's intentionally scoped to what's needed to understand and demonstrate these ideas: no GPU support, no optimizer beyond plain gradient descent, and no support for diagonal summations within a single operand (e.g. `"ii->"` or `"ii->i"`), which `np.einsum` supports but this implementation does not.
